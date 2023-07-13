@@ -146,6 +146,14 @@ REST_FRAMEWORK = {
     ]
 }
 
+
+#Zack s3 configs
+#AWS_ACCESS_KEY_ID = 
+#AWS_SECRET_ACCESS_KEY =
+#AWS_STORAGE_BUCKET_NAME = 
+#AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+
 CORS_REPLACE_HTTPS_REFERER      = True
 HOST_SCHEME                     = "https://"
 SECURE_PROXY_SSL_HEADER         = ('HTTP_X_FORWARDED_PROTO', 'https')

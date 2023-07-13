@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'daraja.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "daraja_internet",
+        "NAME": "railway",
         "USER": "postgres",
-        "PASSWORD": "ndingo9052",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "PASSWORD": "RJA2FoAEiTr6ar4Gr2oE",
+        "HOST": "containers-us-west-165.railway.app",
+        "PORT": "6413",
     }
 }
 
