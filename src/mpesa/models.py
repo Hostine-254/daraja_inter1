@@ -5,7 +5,7 @@ from django.db import models
 class LNMOnline(models.Model):
     CheckoutRequestID = models.CharField(max_length=50)
     MerchantRequestID = models.CharField(max_length=30)
-    PhoneNumber = models.CharField(max_length=16)
+    PhoneNumber = models.CharField(max_length=15)
     ResultCode = models.IntegerField()
     Amount = models.FloatField()
     MpesaReceiptNumber = models.CharField(max_length=20)
