@@ -172,7 +172,6 @@ STATIC_URL = F'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 MEDIA_URL = F'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 #heroku settings
-#del DATABASES['default']['OPTIONS']['sslmode']
 
 
 CORS_REPLACE_HTTPS_REFERER      = True
