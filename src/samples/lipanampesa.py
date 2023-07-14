@@ -30,7 +30,7 @@ def lipa_na_mpesa():
         "PartyA": keys.phone_number,
         "PartyB": keys.business_ShortCode,
         "PhoneNumber": keys.phone_number,
-        "CallBackURL": "https://mydomain.com/path",
+        "CallBackURL": "https://immense-basin-10854-a03a17f67646.herokuapp.com/api/lnm",
         "AccountReference": "Netview Fix",
         "TransactionDesc": "Payment of development", 
       }

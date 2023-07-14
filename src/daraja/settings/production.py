@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
+    #external apps
     'rest_framework',
+
+    #local apps
+    'mpesa',
 ]
 
 MIDDLEWARE = [
@@ -164,7 +168,7 @@ AWS_LOCATION = 'static'
 AWS_QUERYSTRING_AUTH = False
 
 AWS_HEADERS = {
- 'Access-Control-Aallow-Origin': '*',}
+ 'Access-Control-Aallow-Origin': '*',} #intentionally wrong
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'

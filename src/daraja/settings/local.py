@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #external apps
     'rest_framework',
+
+    #local apps
+    'mpesa',
 ]
 
 MIDDLEWARE = [
@@ -79,11 +83,11 @@ WSGI_APPLICATION = 'daraja.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "railway",
+        "NAME": "daraja-internet",
         "USER": "postgres",
-        "PASSWORD": "RJA2FoAEiTr6ar4Gr2oE",
-        "HOST": "containers-us-west-165.railway.app",
-        "PORT": "6413",
+        "PASSWORD": "ndingo9052",
+        "HOST": "127.0.0.7",
+        "PORT": "5432",
     }
 }
 
