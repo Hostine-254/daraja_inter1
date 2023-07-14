@@ -43,7 +43,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         checkout_request_id = request.data["Body"]["stkCallback"]["CheckoutRequestID"]
         print(checkout_request_id, "this should be check out request id")
 
-        result_code = request.data["Body"]["stkCallback"]["ResultDesc"]
+        result_code = request.data["Body"]["stkCallback"]["ResultCode"]
         print(result_code, "this should be the result code")
 
         amount = request.data["Body"]["stkCallback"]["CallbackMetadata"]["Item"][0]["Value"]
