@@ -148,10 +148,31 @@ REST_FRAMEWORK = {
 
 
 #Zack s3 configs
-#AWS_ACCESS_KEY_ID = 
-#AWS_SECRET_ACCESS_KEY =
-#AWS_STORAGE_BUCKET_NAME = 
-#AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_ACCESS_KEY_ID = "AKIAUAGJXVIYLURYB7AZ"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "daraja-internet1"
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+AWS_DEFAULT_ACL = 'public-read'
+
+AWS_S3_OBJECT_PARAMETER = {
+ 'CachedControl': 'max-age=86400'}
+
+AWS_LOCATION = 'static'
+
+AWS_QUERYSTRING_AUTH = False
+
+AWS_HEADERS = {
+ 'Access-Control-Aallow-Origin': '*',}
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
+STATIC_URL = F'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+MEDIA_URL = F'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+
+#heroku settings
+del DATABASES['default']['OPTIONS']['sslmode']
 
 
 CORS_REPLACE_HTTPS_REFERER      = True
