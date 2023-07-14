@@ -149,28 +149,28 @@ REST_FRAMEWORK = {
 
 
                  #Zack s3 configs
-AWS_ACCESS_KEY_ID = "AKIAUAGJXVIYEA7JDMNA"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME = "daraja-internet"
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+#AWS_ACCESS_KEY_ID = "AKIAUAGJXVIYEA7JDMNA"
+#AWS_SECRET_ACCESS_KEY = "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"
+#AWS_STORAGE_BUCKET_NAME = "daraja-internet"
+#AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-AWS_DEFAULT_ACL = 'public-read'
+#AWS_DEFAULT_ACL = 'public-read'
 
-AWS_S3_OBJECT_PARAMETER = {
- 'CachedControl': 'max-age=86400'}
+#AWS_S3_OBJECT_PARAMETER = {
+# 'CachedControl': 'max-age=86400'}
 
-AWS_LOCATION = 'static'
+#AWS_LOCATION = 'static'
 
-AWS_QUERYSTRING_AUTH = False
+#AWS_QUERYSTRING_AUTH = False
 
-AWS_HEADERS = {
- 'Access-Control-Aallow-Origin': '*',}
+#AWS_HEADERS = {
+# 'Access-Control-Aallow-Origin': '*',}
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
-STATIC_URL = F'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
-MEDIA_URL = F'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+#STATIC_URL = F'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+#MEDIA_URL = F'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 #heroku settings
               #End of Zack's s3 configs
@@ -185,3 +185,5 @@ CSRF_COOKIE_SECURE              = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
 SECURE_HSTS_SECONDS             = 1000000
 SECURE_FRAME_DENY               = True
+
+from daraja.aws.conf import *
