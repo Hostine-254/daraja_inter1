@@ -174,6 +174,9 @@ MEDIA_URL = F'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 #heroku settings
               #End of Zack's s3 configs
+import django_on_heroku
+
+django_on_heroku.settings(locals(),staticfiles=False)
 
 
 CORS_REPLACE_HTTPS_REFERER      = True
