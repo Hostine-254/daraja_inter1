@@ -79,3 +79,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
              TransactionDate = transaction_datetime
         )
         mpesa_model.save()
+
+        from rest_framework.response import Response
+
+        return Response({"OurResultDesc": "YEEY!!! It worked!"})
