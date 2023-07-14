@@ -76,6 +76,6 @@ class LNMCallbackUrlAPIView(CreateAPIView):
              ResultCode = result_code,
              Amount = amount,
              MpesaReceiptNumber = mpesa_receipt_number,
-             TransactionDate = transaction_date
+             TransactionDate = transaction_datetime
         )
         mpesa_model.save()
