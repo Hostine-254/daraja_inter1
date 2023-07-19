@@ -70,6 +70,12 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         aware_transaction_datetime = pytz.utc.localize(transaction_datetime)
         print(aware_transaction_datetime, "this should be an aware_transaction_datetime")
 
+        from samples.mob_message import mobitech
+        from samples.voucher_retrival import get_Voucher
+
+        voucher_detail = get_Voucher(amount)
+        mobitech(voucher_detail,phone_number)
+
 
         from mpesa.models import LNMOnline
 

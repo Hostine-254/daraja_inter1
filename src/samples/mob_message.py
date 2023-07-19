@@ -1,17 +1,28 @@
 
-def mobitech(phone_number):
+
+def mobitech(voucher_detail,ph_nmber='0722xxxxxx'):
+       
        import requests
 
        import simplejson as json
+       msg_to_send = ''
+       if voucher_detail[0] == 0:
+              send_number ='0722888543'
+              msg_to_send =voucher_detail[1]
+       elif voucher_detail[1] == 1:
+              send_number =ph_nmber
+              msg_to_send = 'login: %s  password: %s' % (voucher_detail[0][0], voucher_detail[0][1])
+       else:
+              pass
 
        url = 'https://api.mobitechtechnologies.com/sms/sendsms'
 
        payload = {
-          "mobile": phone_number,
+          "mobile": send_number,
           "response_type": "json",
           "sender_name": "23107",
           "service_id": 0,
-          "message": "niaje max ni Hostine"
+          "message": msg_to_send + ' \n \t\tNetView <Simple!, Cheap!, Reliable!'
         }
 
        headers = {
@@ -23,4 +34,4 @@ def mobitech(phone_number):
 
        print(response.text.encode('utf8'))
 
-mobitech(254722888543)
+#mobitech(254722888543)
