@@ -5,7 +5,7 @@ import shelve
   
 def get_Voucher(amount):
     voucher_available =1
-    if amount == 20:
+    if amount == 2:
         with shelve.open('dbms/db_Th_Day') as db:
            #db.update(data)
            msg = "Shs 20 Vouchers are almost depleted"
