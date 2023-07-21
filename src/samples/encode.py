@@ -1,4 +1,4 @@
-import keys
+from samples.keys import *
 
 import base64
 
