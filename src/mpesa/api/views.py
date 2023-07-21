@@ -108,8 +108,8 @@ class NetPostAPIView(CreateAPIView):
 
         print(request.data, "this is the net-request.data")
 
-        payee_amount = request.data["form_values"][0]
-        payee_number = request.data["phone_number"][1]
+        payee_amount = request.data["form_values"]
+        payee_number = request.data["phone_number"]
         print('This is the requested payee amount: ',payee_amount)
         print("This is the requested payee number: ",payee_number)
 
