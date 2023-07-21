@@ -79,19 +79,18 @@ class LNMCallbackUrlAPIView(CreateAPIView):
 
 
         from mpesa.models import LNMOnline
-        if amount == '' or 0:
 
 
-            mpesa_model = LNMOnline.objects.create(
-                CheckoutRequestID = checkout_request_id,
-                MerchantRequestID = merchant_request_id,
-                PhoneNumber = phone_number,
-                ResultCode = result_code,
-                Amount = amount,
-                MpesaReceiptNumber = mpesa_receipt_number,
-                TransactionDate = aware_transaction_datetime
-            )
-            mpesa_model.save()
+        mpesa_model = LNMOnline.objects.create(
+            CheckoutRequestID = checkout_request_id,
+            MerchantRequestID = merchant_request_id,
+            PhoneNumber = phone_number,
+            ResultCode = result_code,
+            Amount = amount,
+            MpesaReceiptNumber = mpesa_receipt_number,
+            TransactionDate = aware_transaction_datetime
+        )
+        mpesa_model.save()
 
         
 
