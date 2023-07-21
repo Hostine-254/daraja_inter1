@@ -1,7 +1,7 @@
 import requests
 import simplejson as json
 
-from access_token import generate_access_token
+#from access_token import generate_access_token
 from encode import generate_password
 from utils import get_timestamp
 import keys
