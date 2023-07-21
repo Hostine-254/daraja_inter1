@@ -93,3 +93,12 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         from rest_framework.response import Response
 
         return Response({"OurResultDesc": "YEEY!!! It worked!"})
+    
+
+class NetPostAPIView(CreateAPIView):
+
+    permission_classes = [AllowAny]
+
+    def create(self, request,):
+
+        print(request.data, "this is the net-request.data")
