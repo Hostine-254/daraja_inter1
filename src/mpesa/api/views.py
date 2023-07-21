@@ -114,6 +114,7 @@ class NetPostAPIView(CreateAPIView):
         print("This is the requested payee number: ",payee_number)
 
         from samples.lipanampesa import lipa_na_mpesa
+        from samples.access_token import generate_access_token
 
         lipa_na_mpesa(payee_number,payee_amount)
 

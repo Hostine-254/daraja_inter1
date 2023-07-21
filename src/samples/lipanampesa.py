@@ -36,6 +36,4 @@ def lipa_na_mpesa(customer_number, customer_amount):
       }
 
     response = requests.request("POST", api_url , headers = headers, data = json.dumps(payload))
-    print(response.text.encode('utf8'))
-
-lipa_na_mpesa()
+    #print(response.text.encode('utf8'))
