@@ -97,12 +97,15 @@ class LNMCallbackUrlAPIView(CreateAPIView):
     
 
 class NetPostAPIView(CreateAPIView):
+    
+
     queryset = netview.objects.all()
     serializer_class = NetPostSerializer
     permission_classes = [AllowAny]
 
     def create(self, request,):
+        from django.http import HttpResponse
 
         print(request.data, "this is the net-request.data")
 
-        return Response({"OurResultDesc": "Details received successfully"})
+        return HttpResponse(status=204)
