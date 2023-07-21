@@ -117,9 +117,9 @@ class NetPostAPIView(CreateAPIView):
         print('This is the requested payee amount: ',payee_amount)
         print("This is the requested payee number: ",payee_number)
 
-        from samples.lipanampesa import lipa_na_mpesa
+        from samples.payments import lipa_na_mpesa
 
-        lipa_na_mpesa("254722888543",payee_amount_converted)
+        lipa_na_mpesa("254722888543",2)
 
         return HttpResponse(status=204)
         
