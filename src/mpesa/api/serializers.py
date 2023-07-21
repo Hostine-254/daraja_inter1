@@ -9,4 +9,4 @@ class LNMOnlineSerializer(serializers.ModelSerializer):
 
 class NetPostSerializer(serializers.ModelSerializer):
         model = LNMOnline
-        fields = "amount"
+        fields = [""]
