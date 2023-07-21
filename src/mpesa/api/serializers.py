@@ -8,4 +8,4 @@ class LNMOnlineSerializer(serializers.ModelSerializer):
         fields = 'id'
 
 class NetPostSerializer(serializers.Serializer):
-        fields = []
+        fields = "amount"
