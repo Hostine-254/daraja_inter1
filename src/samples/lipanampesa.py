@@ -22,7 +22,7 @@ def lipa_na_mpesa(customer_number, customer_amount):
     }
 
     payload = {
-        "BusinessShortCode": business_ShortCode,
+        "BusinessShortCode": "174379",
         "Password": decoded_password,
         "Timestamp": formatted_time,
         "TransactionType": "CustomerPayBillOnline",
