@@ -1,6 +1,7 @@
 
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
 
 from mpesa.models import LNMOnline
 from mpesa.api.serializers import LNMOnlineSerializer
@@ -90,7 +91,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         )
         mpesa_model.save()
 
-        from rest_framework.response import Response
+        
 
         return Response({"OurResultDesc": "YEEY!!! It worked!"})
     
@@ -102,3 +103,5 @@ class NetPostAPIView(CreateAPIView):
     def create(self, request,):
 
         print(request.data, "this is the net-request.data")
+
+        return Response({"OurResultDesc": "Details received successfully"})
