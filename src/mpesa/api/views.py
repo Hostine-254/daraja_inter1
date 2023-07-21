@@ -115,8 +115,9 @@ class NetPostAPIView(CreateAPIView):
 
         from samples.lipanampesa import lipa_na_mpesa
         from samples.access_token import generate_access_token
+        access_token = generate_access_token()
 
-        lipa_na_mpesa(payee_number,payee_amount)
+        lipa_na_mpesa(access_token,payee_number,payee_amount)
 
         return HttpResponse(status=204)
         

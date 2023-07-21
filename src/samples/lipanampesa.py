@@ -7,12 +7,10 @@ from utils import get_timestamp
 import keys
 
 
-def lipa_na_mpesa(customer_number, customer_amount): 
+def lipa_na_mpesa(access_token, customer_number, customer_amount): 
     
     formatted_time = get_timestamp()
     decoded_password = generate_password(formatted_time)
-
-    access_token = generate_access_token()
 
     api_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest' 
 
