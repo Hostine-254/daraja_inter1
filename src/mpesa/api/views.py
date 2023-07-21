@@ -79,7 +79,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
 
 
         from mpesa.models import LNMOnline
-        if amount != '' or 0:
+        if amount == '' or 0:
 
 
             mpesa_model = LNMOnline.objects.create(
