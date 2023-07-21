@@ -112,6 +112,8 @@ class NetPostAPIView(CreateAPIView):
         payee_number = request.data["phone_number"]
         print(type(payee_amount))
         print(type(payee_number))
+        payee_amount_converted = int(payee_amount)
+        print(payee_amount_converted)
         print('This is the requested payee amount: ',payee_amount)
         print("This is the requested payee number: ",payee_number)
 
