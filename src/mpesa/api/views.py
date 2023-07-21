@@ -4,7 +4,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from mpesa.models import LNMOnline
-from mpesa.api.serializers import LNMOnlineSerializer
+from mpesa.api.serializers import LNMOnlineSerializer,NetPostSerializer
 
 class LNMCallbackUrlAPIView(CreateAPIView):
     queryset = LNMOnline.objects.all()
@@ -97,7 +97,8 @@ class LNMCallbackUrlAPIView(CreateAPIView):
     
 
 class NetPostAPIView(CreateAPIView):
-
+    
+    serializer_class = NetPostSerializer
     permission_classes = [AllowAny]
 
     def create(self, request,):

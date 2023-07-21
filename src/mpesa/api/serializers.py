@@ -6,3 +6,6 @@ class LNMOnlineSerializer(serializers.ModelSerializer):
     class Meta:
         model = LNMOnline
         fields = 'id'
+
+class NetPostSerializer(serializers.ModelSerializer):
+    pass
