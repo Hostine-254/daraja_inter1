@@ -13,3 +13,6 @@ class LNMOnline(models.Model):
 
     def __str__(self):
         return f"{self.PhoneNumber} has sent {self.Amount} >> {self.MpesaReceiptNumber}"
+    
+class netview(models.Model):
+    pass

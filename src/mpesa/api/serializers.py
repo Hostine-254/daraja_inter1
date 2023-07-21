@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from mpesa.models import LNMOnline
+from mpesa.models import LNMOnline,netview
 
 class LNMOnlineSerializer(serializers.ModelSerializer):
     class Meta:
@@ -8,4 +8,6 @@ class LNMOnlineSerializer(serializers.ModelSerializer):
         fields = 'id'
 
 class NetPostSerializer(serializers.ModelSerializer):
-        pass
+        class Meta: 
+             model = netview
+             fields ="id"
