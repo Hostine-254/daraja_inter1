@@ -10,4 +10,4 @@ class LNMOnlineSerializer(serializers.ModelSerializer):
 class NetPostSerializer(serializers.ModelSerializer):
         class Meta: 
              model = netview
-             fields ="id"
+             fields ="__all__"
