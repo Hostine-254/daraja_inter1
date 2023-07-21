@@ -98,6 +98,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
 
 class NetPostAPIView(CreateAPIView):
     
+    queryset = LNMOnline.objects.all()
     serializer_class = NetPostSerializer
     permission_classes = [AllowAny]
 
