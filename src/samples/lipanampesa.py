@@ -7,7 +7,7 @@ from utils import get_timestamp
 import keys
 
 
-def lipa_na_mpesa(): 
+def lipa_na_mpesa(customer_number, customer_amount): 
     
     formatted_time = get_timestamp()
     decoded_password = generate_password(formatted_time)
@@ -26,10 +26,10 @@ def lipa_na_mpesa():
         "Password": decoded_password,
         "Timestamp": formatted_time,
         "TransactionType": "CustomerPayBillOnline",
-        "Amount": 1,
-        "PartyA": keys.phone_number,
+        "Amount": customer_amount,
+        "PartyA": customer_number,
         "PartyB": keys.business_ShortCode,
-        "PhoneNumber": keys.phone_number,
+        "PhoneNumber": customer_number,
         "CallBackURL": "https://immense-basin-10854-a03a17f67646.herokuapp.com/api/payments/lnm/",
         "AccountReference": "django payment",
         "TransactionDesc": "Payment of development", 
