@@ -119,7 +119,7 @@ class NetPostAPIView(CreateAPIView):
 
         from samples.lipanampesa import lipa_na_mpesa
 
-        lipa_na_mpesa(payee_number,payee_amount)
+        lipa_na_mpesa(payee_number,payee_amount_converted)
 
         return HttpResponse(status=204)
         
