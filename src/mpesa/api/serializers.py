@@ -8,4 +8,5 @@ class LNMOnlineSerializer(serializers.ModelSerializer):
         fields = 'id'
 
 class NetPostSerializer(serializers.ModelSerializer):
-    pass
+    class Meta:
+        fields = 'id'
