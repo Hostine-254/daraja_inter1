@@ -46,7 +46,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
 
         result_code = request.data["Body"]["stkCallback"]["ResultCode"]
         print(result_code, "this should be the result code")
-
+        
         amount = request.data["Body"]["stkCallback"]["CallbackMetadata"]["Item"][0]["Value"]
         print(amount, "this should be the amount")
         
@@ -79,17 +79,19 @@ class LNMCallbackUrlAPIView(CreateAPIView):
 
 
         from mpesa.models import LNMOnline
+        if amount != '' or 0:
 
-        mpesa_model = LNMOnline.objects.create(
-             CheckoutRequestID = checkout_request_id,
-             MerchantRequestID = merchant_request_id,
-             PhoneNumber = phone_number,
-             ResultCode = result_code,
-             Amount = amount,
-             MpesaReceiptNumber = mpesa_receipt_number,
-             TransactionDate = aware_transaction_datetime
-        )
-        mpesa_model.save()
+
+            mpesa_model = LNMOnline.objects.create(
+                CheckoutRequestID = checkout_request_id,
+                MerchantRequestID = merchant_request_id,
+                PhoneNumber = phone_number,
+                ResultCode = result_code,
+                Amount = amount,
+                MpesaReceiptNumber = mpesa_receipt_number,
+                TransactionDate = aware_transaction_datetime
+            )
+            mpesa_model.save()
 
         
 
