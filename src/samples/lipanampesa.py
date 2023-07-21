@@ -4,7 +4,7 @@ import simplejson as json
 #from access_token import generate_access_token
 from samples.encode import generate_password
 from samples.utils import get_timestamp
-import keys
+from samples.keys import *
 
 
 def lipa_na_mpesa(access_token, customer_number, customer_amount): 
