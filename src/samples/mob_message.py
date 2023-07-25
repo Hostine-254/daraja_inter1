@@ -5,7 +5,11 @@ def mobitech(voucher_detail,ph_nmber='0722xxxxxx'):
        import requests
 
        import simplejson as json
+        
+       send_number = ''
+
        msg_to_send = ''
+       
        if voucher_detail[0] == 0:
               send_number ='0722888543'
               msg_to_send =voucher_detail[1]
