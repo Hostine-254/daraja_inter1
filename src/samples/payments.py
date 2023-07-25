@@ -4,6 +4,7 @@ import json
 from requests.auth import HTTPBasicAuth
 import base64
 from datetime import datetime
+from json import JSONDecodeError
 
 
 def generate_access_token():
@@ -17,21 +18,19 @@ def generate_access_token():
         response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret),verify=False)
 
     #print(response.text) #{'access_token': '4ncw7TO2e0jyQ2uTeAiNemwONPjd', 'expires_in': '3599'}
-    #access = response.text.encode('utf8')
-    data = json.loads(response.text)
-    print(data['access_token'])
-
-    #json_response = response.json()
-    #my_access_token = json_response['access_token']
-        
-    return data['access_token']
-
-
-def lipa_na_mpesa(customer_number, customer_amount): 
     try:
-        access_token = generate_access_token()
-    except:
-        access_token = generate_access_token()
+        json_response = response.json()
+    except JSONDecodeError:
+        print('Response could not be serialized')
+
+    my_access_token = json_response['access_token']
+        
+    return my_access_token
+
+
+def lipa_na_mpesa(customer_number, customer_amount):
+
+    access_token = generate_access_token()
     
     formatted_time = get_timestamp()
     decoded_password = generate_password(formatted_time)
