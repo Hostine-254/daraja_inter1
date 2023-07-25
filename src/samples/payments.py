@@ -21,8 +21,8 @@ def generate_access_token():
     data = json.loads(response.text)
     print(data['access_token'])
 
-    json_response = response.json()
-    my_access_token = json_response['access_token']
+    #json_response = response.json()
+    #my_access_token = json_response['access_token']
         
     return data['access_token']
 
