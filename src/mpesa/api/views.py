@@ -126,12 +126,9 @@ class NetPostAPIView(CreateAPIView):
         print("This is the payee amount converted:",type(payee_amount_converted))
         print("This is the payee number converted",type(payee_number_converted))
         
-        try:
-            from samples.payments import lipa_na_mpesa
-            lipa_na_mpesa("254722888543",2)
-        except requests.exceptions.JSONDecodeError:
-            from samples.payments import lipa_na_mpesa
-            lipa_na_mpesa("254722888543",2)
+        from samples.lipanampesa import lipa_na_mpesa as mpesa
+
+        mpesa("0722888543", 2)
 
 
         #lipa_na_mpesa(str(payee_number_converted),int(payee_amount_converted))
