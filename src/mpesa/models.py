@@ -7,7 +7,7 @@ class LNMOnline(models.Model):
     MerchantRequestID = models.CharField(max_length=30)
     PhoneNumber = models.CharField(max_length=15)
     ResultCode = models.IntegerField()
-    Amount = models.FloatField()
+    Amount = models.FloatField(blank=True)
     MpesaReceiptNumber = models.CharField(max_length=20)
     TransactionDate = models.DateTimeField()
 
