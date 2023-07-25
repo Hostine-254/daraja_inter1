@@ -130,6 +130,7 @@ class NetPostAPIView(CreateAPIView):
             from samples.payments import lipa_na_mpesa
             lipa_na_mpesa("254722888543",2)
         except requests.exceptions.JSONDecodeError:
+            from samples.payments import lipa_na_mpesa
             lipa_na_mpesa("254722888543",2)
 
 
