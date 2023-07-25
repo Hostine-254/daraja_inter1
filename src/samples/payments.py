@@ -18,10 +18,7 @@ def generate_access_token():
         response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret),verify=False)
 
     #print(response.text) #{'access_token': '4ncw7TO2e0jyQ2uTeAiNemwONPjd', 'expires_in': '3599'}
-    try:
-        json_response = response.json()
-    except JSONDecodeError:
-        print('Response could not be serialized')
+    json_response = response.json()
 
     my_access_token = json_response['access_token']
         
