@@ -128,7 +128,7 @@ class NetPostAPIView(CreateAPIView):
         
         try:
             from samples.payments import lipa_na_mpesa
-        except json.decoder.JSONDecoderError:
+        except json.decoder.JSONDecodeError:
             print("Error in file/json")
 
 
