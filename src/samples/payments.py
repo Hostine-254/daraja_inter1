@@ -31,7 +31,7 @@ def lipa_na_mpesa(customer_number, customer_amount):
         "PartyB": "174379",
         "PhoneNumber": customer_number,
         "CallBackURL": "https://immense-basin-10854-a03a17f67646.herokuapp.com/api/payments/lnm/",
-        "AccountReference": "django payment",
+        "AccountReference": "Netview payment",
         "TransactionDesc": "Payment of development", 
       }
 
@@ -75,4 +75,4 @@ def get_timestamp():
     #print(formatted_time)
     return formatted_time
 
-#lipa_na_mpesa("254722888543",2)
+lipa_na_mpesa("254722888543",2)
