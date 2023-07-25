@@ -2,6 +2,7 @@
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+import requests
 
 from mpesa.models import LNMOnline,netview
 from mpesa.api.serializers import LNMOnlineSerializer,NetPostSerializer
@@ -106,7 +107,6 @@ class NetPostAPIView(CreateAPIView):
 
     def create(self, request,):
         from django.http import HttpResponse
-        import json
 
         print(request.data, "this is the net-request.data")
 
@@ -128,7 +128,7 @@ class NetPostAPIView(CreateAPIView):
         
         try:
             from samples.payments import lipa_na_mpesa
-        except json.decoder.JSONDecodeError:
+        except requests.exceptions.JSONDecodeError:
             print("Error in file/json")
 
 
