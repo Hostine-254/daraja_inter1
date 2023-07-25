@@ -40,8 +40,8 @@ def lipa_na_mpesa(customer_number, customer_amount):
     print(response.text.encode('utf8'))
 
 def generate_access_token():
-    consumer_key = "6zziVX9V3e4S4sIsW6dwBVCXJ3knogpV"
-    consumer_secret = "EC9601u33WISnXH9"
+    consumer_key = "XeCcC6RpPy5af5nb7AGG60k3t2wqcmkg"
+    consumer_secret = "pTikngLOEedhvbYK"
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
     response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret))
 
@@ -75,4 +75,4 @@ def get_timestamp():
     #print(formatted_time)
     return formatted_time
 
-lipa_na_mpesa("254722888543",2)
+#lipa_na_mpesa("254722888543",2)
