@@ -32,7 +32,7 @@ def lipa_na_mpesa(customer_number, customer_amount):
     formatted_time = get_timestamp()
     decoded_password = generate_password(formatted_time)
 
-    api_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest?format=json' 
+    api_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest' 
 
     headers = {
       'Content-Type': 'application/json',
