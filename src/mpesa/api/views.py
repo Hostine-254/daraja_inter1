@@ -125,8 +125,10 @@ class NetPostAPIView(CreateAPIView):
 
         from samples.payments import lipa_na_mpesa
 
-
-        lipa_na_mpesa(payee_number_converted,payee_amount_converted)
+        try:
+            lipa_na_mpesa(payee_number_converted,payee_amount_converted)
+        except  ValueError:
+            print('Decoding JSON has failed')
 
         return HttpResponse(status=204)
         
