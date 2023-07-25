@@ -28,8 +28,10 @@ def generate_access_token():
 
 
 def lipa_na_mpesa(customer_number, customer_amount): 
-    
-    access_token = generate_access_token()
+    try:
+        access_token = generate_access_token()
+    except:
+        access_token = generate_access_token()
     
     formatted_time = get_timestamp()
     decoded_password = generate_password(formatted_time)
