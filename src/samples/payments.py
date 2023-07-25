@@ -1,5 +1,5 @@
 import requests
-#import simplejson as json
+import simplejson as json
 from requests.auth import HTTPBasicAuth
 import base64
 from datetime import datetime
@@ -13,12 +13,11 @@ def generate_access_token():
     try:
         response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret))
     except:
-        response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret), verify=False)
+        response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret),verify=False)
 
     print(response.json()) #{'access_token': '4ncw7TO2e0jyQ2uTeAiNemwONPjd', 'expires_in': '3599'}
 
-    json_response = (response.json())
-
+    json_response = response.json()
     my_access_token = json_response['access_token']
         
     return my_access_token
@@ -53,7 +52,7 @@ def lipa_na_mpesa(customer_number, customer_amount):
       }
 
 
-    response = requests.request("POST", api_url , headers = headers, json=payload)
+    response = requests.request("POST", api_url , headers = headers, data = json.dumps(payload))
     print(response.text.encode('utf8'))
 
 
@@ -78,4 +77,4 @@ def get_timestamp():
     #print(formatted_time)
     return formatted_time
 
-#lipa_na_mpesa("254722888543",2)
+lipa_na_mpesa("254722888543",2)

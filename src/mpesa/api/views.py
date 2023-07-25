@@ -129,9 +129,9 @@ class NetPostAPIView(CreateAPIView):
 
 
         #lipa_na_mpesa(str(payee_number_converted),int(payee_amount_converted))
-        lipa_na_mpesa("254722888543",2)
+        #lipa_na_mpesa("254722888543",2)
 
-        return HttpResponse(status=204)
+        #return HttpResponse(status=204)
         
         #{'form_values': ['100'], 'phone_number': ['0722888543']}
         
