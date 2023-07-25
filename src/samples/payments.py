@@ -16,12 +16,15 @@ def generate_access_token():
     except:
         response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret),verify=False)
 
-    #print(response.json()) #{'access_token': '4ncw7TO2e0jyQ2uTeAiNemwONPjd', 'expires_in': '3599'}
+    #print(response.text) #{'access_token': '4ncw7TO2e0jyQ2uTeAiNemwONPjd', 'expires_in': '3599'}
+    #access = response.text.encode('utf8')
+    data = json.loads(response.text)
+    print(data['access_token'])
 
     json_response = response.json()
     my_access_token = json_response['access_token']
         
-    return my_access_token
+    return data['access_token']
 
 
 def lipa_na_mpesa(customer_number, customer_amount): 
@@ -79,3 +82,4 @@ def get_timestamp():
     return formatted_time
 
 #lipa_na_mpesa("254722888543",2)
+generate_access_token()
