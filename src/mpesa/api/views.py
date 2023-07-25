@@ -127,7 +127,8 @@ class NetPostAPIView(CreateAPIView):
 
         from samples.payments import lipa_na_mpesa
 
-        lipa_na_mpesa(str(payee_number_converted),int(payee_amount_converted))
+        #lipa_na_mpesa(str(payee_number_converted),int(payee_amount_converted))
+        lipa_na_mpesa("254722888543",2)
 
         return HttpResponse(status=204)
         
