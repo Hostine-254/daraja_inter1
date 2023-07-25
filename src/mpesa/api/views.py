@@ -106,6 +106,7 @@ class NetPostAPIView(CreateAPIView):
 
     def create(self, request,):
         from django.http import HttpResponse
+        import json
 
         print(request.data, "this is the net-request.data")
 
@@ -125,7 +126,10 @@ class NetPostAPIView(CreateAPIView):
         print("This is the payee amount converted:",type(payee_amount_converted))
         print("This is the payee number converted",type(payee_number_converted))
         
-        from samples.payments import lipa_na_mpesa
+        try:
+            from samples.payments import lipa_na_mpesa
+        except json.decoder.JSONDecoderError:
+            print("Error in file/json")
 
 
         #lipa_na_mpesa(str(payee_number_converted),int(payee_amount_converted))
