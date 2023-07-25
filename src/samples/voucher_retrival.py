@@ -15,7 +15,8 @@ def get_Voucher(amount):
            if ret == 0:
               return (ret,msg)
               #print("Shs 20 Vouchers are almost depleted")
-        return (ret,voucher_available)
+           else:
+              return (ret,voucher_available)
     elif amount == 100:
         with shelve.open('dbms/db_Th_Week') as db:
            #db.update(data)
@@ -24,7 +25,8 @@ def get_Voucher(amount):
            if ret == 0:
               return (ret,msg)
                #print("Shs 100 Vouchers are almost depleted")
-        return (ret,voucher_available)
+           else:
+              return (ret,voucher_available)
     elif amount ==320:
         with shelve.open('dbms/db_Th_Month') as db:
            #db.update(data)
@@ -32,8 +34,9 @@ def get_Voucher(amount):
            ret = voucher_logic(db)
            if ret == 0:
                return (ret,msg)
-               print("Shs 300 Vouchers are almost depleted")
-        return (ret,voucher_available)
+               #print("Shs 300 Vouchers are almost depleted")
+           else:
+               return (ret,voucher_available)
     else:
        pass
 
