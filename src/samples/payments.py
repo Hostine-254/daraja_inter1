@@ -1,5 +1,5 @@
 import requests
-import simplejson as json
+#import simplejson as json
 from requests.auth import HTTPBasicAuth
 import base64
 from datetime import datetime
@@ -9,11 +9,16 @@ def generate_access_token():
     consumer_key = "XeCcC6RpPy5af5nb7AGG60k3t2wqcmkg"
     consumer_secret = "pTikngLOEedhvbYK"
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
-    response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret))
+
+    try:
+        response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret))
+    except:
+        response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret), verify=False)
 
     print(response.json()) #{'access_token': '4ncw7TO2e0jyQ2uTeAiNemwONPjd', 'expires_in': '3599'}
 
-    json_response = response.json()
+    json_response = (response.json())
+
     my_access_token = json_response['access_token']
         
     return my_access_token
@@ -48,7 +53,7 @@ def lipa_na_mpesa(customer_number, customer_amount):
       }
 
 
-    response = requests.request("POST", api_url , headers = headers, data = json.dumps(payload))
+    response = requests.request("POST", api_url , headers = headers, json=payload)
     print(response.text.encode('utf8'))
 
 

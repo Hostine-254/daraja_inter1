@@ -106,7 +106,6 @@ class NetPostAPIView(CreateAPIView):
 
     def create(self, request,):
         from django.http import HttpResponse
-        import simplejson as json
 
         print(request.data, "this is the net-request.data")
 
