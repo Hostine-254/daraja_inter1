@@ -2,7 +2,6 @@
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-import requests
 
 from mpesa.models import LNMOnline,netview
 from mpesa.api.serializers import LNMOnlineSerializer,NetPostSerializer
