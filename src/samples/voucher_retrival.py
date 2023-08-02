@@ -13,7 +13,7 @@ def get_Voucher(amount):
            
            #print(dict(db))
            if ret == 0:
-              return (ret,msg)
+              return (0,msg)
               #print("Shs 20 Vouchers are almost depleted")
            else:
               return (ret,voucher_available)
