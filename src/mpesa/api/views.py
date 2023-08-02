@@ -126,7 +126,7 @@ class NetPostAPIView(CreateAPIView):
         print("This is the payee amount converted:",type(payee_amount_converted))
         print("This is the payee number converted",type(payee_number_converted))
         
-        from samples.lipanampesa import lipa_na_mpesa
+        from samples.payments import lipa_na_mpesa
 
 
         lipa_na_mpesa(payee_number_converted, payee_amount_converted)
