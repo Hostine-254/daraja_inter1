@@ -3,8 +3,8 @@ from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from mpesa.models import LNMOnline,netview
-from mpesa.api.serializers import LNMOnlineSerializer,NetPostSerializer
+from mpesa.models import LNMOnline,netview,C2BPayments
+from mpesa.api.serializers import LNMOnlineSerializer,NetPostSerializer,C2BPaymentSerializer
 
 class LNMCallbackUrlAPIView(CreateAPIView):
     queryset = LNMOnline.objects.all()
@@ -36,7 +36,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
                 }
              
         }
-        """
+
 
         merchant_request_id = request.data["Body"]["stkCallback"]["MerchantRequestID"]
         print(merchant_request_id, "this should be merchant request id")
@@ -95,7 +95,36 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         
 
         return Response({"OurResultDesc": "YEEY!!! It worked!"})
+"""
+
+class C2BValidationAPIView(CreateAPIView):
+    queryset = C2BPayments.objects.all()
+    serializer_class = C2BPaymentSerializer
+    permission_classes = [AllowAny]
+
+    #def create(self, request,):
+       
+    #    print(request.data, "this is the request.data in validation")
+
+
+    #    return Response({"OurResultDesc": "YEEY!!! It worked!"})
     
+
+
+class C2BConfirmationAPIView(CreateAPIView):
+    queryset = C2BPayments.objects.all()
+    serializer_class = C2BPaymentSerializer
+    permission_classes = [AllowAny]
+
+    def create(self, request,):
+       
+        print(request.data, "this is the request.data in Confirmation")
+
+
+        return Response({"ResultDesc": 0})
+        
+
+          
 
 class NetPostAPIView(CreateAPIView):
     

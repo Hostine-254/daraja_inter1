@@ -23,3 +23,20 @@ def register_url():
     print(response.text.encode('utf8'))
 
 register_url()
+
+def simulate_c2b_transaction():
+    my_access_token = generate_access_token()
+    api_url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate"
+    
+    headers = {"Authorization": "Bearer %s" % my_access_token}
+
+    request = {
+        "ShortCode": keys.shortcode,
+        "CommandID": "CustomerBillOnline",
+        "Amount": 2,
+        "Msisdn": "254708374149",
+        "BillRefNumber": "12345678",
+
+    }
+    response =  requests.request("POST",api_url , headers = headers, data = json.dumps(request))
+    print(response.text)

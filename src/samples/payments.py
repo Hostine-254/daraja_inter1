@@ -7,8 +7,8 @@ from datetime import datetime
 
 
 def generate_access_token():
-    consumer_key = "XeCcC6RpPy5af5nb7AGG60k3t2wqcmkg"
-    consumer_secret = "pTikngLOEedhvbYK"
+    consumer_key = "th3xMEca7XtbafVfCrNwSfLCC93ihsIr"
+    consumer_secret = "YbpRM06rwanYyRGg"
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 
     try:
@@ -47,8 +47,8 @@ def lipa_na_mpesa(customer_number, customer_amount):
         "PartyA": customer_number,
         "PartyB": "174379",
         "PhoneNumber": customer_number,
-        "CallBackURL": "https://immense-basin-10854-a03a17f67646.herokuapp.com/api/payments/lnm/",
-        "AccountReference": "Netview development",
+        "CallBackURL": "https://immense-basin-10854-a03a17f67646.herokuapp.com/api/payments/lpm/",
+        "AccountReference": "NetView development",
         "TransactionDesc": "Payment for Development", 
       }
 
@@ -79,4 +79,4 @@ def get_timestamp():
     #print(formatted_time)
     return formatted_time
 
-#lipa_na_mpesa("254722888543",2)
+lipa_na_mpesa("254722888543",1)

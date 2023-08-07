@@ -16,3 +16,6 @@ class LNMOnline(models.Model):
     
 class netview(models.Model):
     pass
+
+class C2BPayments(models.Model):
+    pass
