@@ -47,7 +47,7 @@ def lipa_na_mpesa(customer_number, customer_amount):
         "PartyA": customer_number,
         "PartyB": "174379",
         "PhoneNumber": customer_number,
-        "CallBackURL": "https://immense-basin-10854-a03a17f67646.herokuapp.com/api/payments/lpm/",
+        "CallBackURL": "https://immense-basin-10854-a03a17f67646.herokuapp.com/api/payments/lnm/",
         "AccountReference": "NetView development",
         "TransactionDesc": "Payment for Development", 
       }
