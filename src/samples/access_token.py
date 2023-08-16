@@ -4,8 +4,8 @@ from requests.auth import HTTPBasicAuth
 from keys import *
 
 def generate_access_token():
-    consumer_key = "fEpu5dLJ49HVWJhGGy0vL5Us0rve0IRl"
-    consumer_secret = "UqACe8GpqJ3pBKoT"
+    consumer_key = "th3xMEca7XtbafVfCrNwSfLCC93ihsIr"
+    consumer_secret = "YbpRM06rwanYyRGg"
     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
     response = requests.request("GET", api_URL , auth=HTTPBasicAuth(consumer_key, consumer_secret))
 

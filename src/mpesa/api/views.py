@@ -36,6 +36,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
                 }
              
         }
+        """
 
 
         merchant_request_id = request.data["Body"]["stkCallback"]["MerchantRequestID"]
@@ -69,7 +70,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
 
         import pytz
         aware_transaction_datetime = pytz.utc.localize(transaction_datetime)
-        print(aware_transaction_datetime, "this should be an aware_transaction_datetime")
+        print(aware_transaction_datetime, "this should be time aware_transaction_datetime")
 
         from samples.mob_message import mobitech
         from samples.voucher_retrival import get_Voucher
@@ -95,7 +96,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         
 
         return Response({"OurResultDesc": "YEEY!!! It worked!"})
-"""
+
 
 class C2BValidationAPIView(CreateAPIView):
     queryset = C2BPayments.objects.all()
@@ -154,7 +155,7 @@ class NetPostAPIView(CreateAPIView):
         print("This is the payee amount converted:",type(payee_amount_converted))
         print("This is the payee number converted",type(payee_number_converted))
         
-        from samples.payments import lipa_na_mpesa
+        from samples.lipanampesa import lipa_na_mpesa
 
 
         lipa_na_mpesa(payee_number_converted, payee_amount_converted)

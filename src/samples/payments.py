@@ -79,4 +79,4 @@ def get_timestamp():
     #print(formatted_time)
     return formatted_time
 
-lipa_na_mpesa("254722888543",1)
+#lipa_na_mpesa("254740188774",1)

@@ -2,7 +2,7 @@ import requests
 
 import simplejson as json
 
-from access_token import generate_access_token
+from samples.access_token import generate_access_token
 import keys
 
 my_access_token =generate_access_token()
@@ -32,7 +32,7 @@ def simulate_c2b_transaction():
 
     request = {
         "ShortCode": keys.shortcode,
-        "CommandID": "CustomerBillOnline",
+        "CommandID": "CustomerBuyGoodsOnline",
         "Amount": 2,
         "Msisdn": "254708374149",
         "BillRefNumber": "12345678",
