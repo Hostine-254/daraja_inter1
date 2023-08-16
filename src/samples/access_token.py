@@ -1,7 +1,7 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
-from keys import *
+from samples.keys import *
 
 def generate_access_token():
     consumer_key = "th3xMEca7XtbafVfCrNwSfLCC93ihsIr"
