@@ -1,0 +1,141 @@
+<style>
+.user1{
+    display: flex;
+    position: relative;
+    top: 52px;
+    left: 10%;
+    color: #088178;
+    font-size: 27px;
+}
+a{
+    text-decoration: none;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    left: 80%;
+}
+.messo{
+    padding-top: 70px;
+    text-align: center;
+    color: coral;
+}
+.box{
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    position: relative;
+    width: 380px;
+    height: auto;
+    background-color: hsla(41, 95%, 85%, 0.702);
+    border-radius: 8px;
+}
+.third_box{
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+.in1{
+    padding-top: 20px;
+}
+#form1,#form2{
+    text-align: center;
+}
+form p{
+    color: #088178;
+}
+.third_box button{
+    background-color: #088178;
+    border: none;
+    border-radius: 8px;
+    width: 74px;
+    height: 32px;
+}
+#in_box{
+    width: 120px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+
+}
+</style>
+
+{% if request.user.is_authenticated %}
+<p class="user1">{{request.user}}</p>
+<a href="{% url 'logout' %}">Logout</a>
+
+<hr>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="messo">
+                <strong>{{message|safe}}</strong>
+            </div>
+        {% endfor %}
+    {% else %}
+    {{order}}
+    
+    <div class="box">
+    <form method="post" enctype="multipart/form-data" id="form1">
+        <h3>Add a voucher Database</h3>
+        {% csrf_token %}
+        <div class="first_box">
+            <p class="p1">Select Region</p>
+            <select name="form_values1" id="in_box">
+                <option value="nairobi">Nairobi</option>
+                <option value="thika" >Thika</option>
+            </select>
+        </div>
+
+        <div class="second_box">
+            <p class="p1">Select Voucher LifeSpan</p>
+            <select name="form_values2" id="in_box">
+                <option value="hour">hour</option>
+                <option value="day" >day</option>
+                <option value="week" >week</option>
+                <option value="month" >month</option>
+            </select>
+        </div>
+
+        <div class="third_box">
+            <label>Upload a file</label>
+            <input class="in1" type="file" required name="file">
+            <p>Only accepts CSV files</p>
+            <button type="submit">Upload</button>
+        </div>
+        
+    </form>
+     <hr>
+     <hr>
+    <form action="{% url 'vouchers-delete' %}" enctype="multipart/form-data" method="DELETE" id="form2">
+        <h3>Destroy a voucher Database</h3>
+        {% csrf_token %}
+        <div class="first_box">
+            <p>Select Region</p>
+            <select name="form_values3" id="in_box">
+                <option value="nairobi">Nairobi</option>
+                <option value="thika" >Thika</option>
+            </select>
+        </div>
+
+        <div class="second_box">
+            <p>Select Voucher LifeSpan</p>
+            <select name="form_values4" id="in_box">
+                <option value="hour">hour</option>
+                <option value="day" >day</option>
+                <option value="week" >week</option>
+                <option value="month" >month</option>
+            </select>
+        </div>
+
+        <div class="third_box">
+            <button type="submit">Destroy</button>
+        </div>
+        
+    </form>
+    </div>
+    {% endif %}
+
+{% else %}
+<h3>Please Login</h3>
+<a href="{% url 'login' %}">Login</a>
+{% endif %}

@@ -1,10 +1,15 @@
+import io,csv
+from django.shortcuts import render,redirect
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView
+
 
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from mpesa.models import LNMOnline,netview,C2BPayments
-from mpesa.api.serializers import LNMOnlineSerializer,NetPostSerializer,C2BPaymentSerializer
+from mpesa.models import LNMOnline,netview,C2BPayments,UploadVoucher
+from mpesa.api.serializers import LNMOnlineSerializer,NetPostSerializer,C2BPaymentSerializer,UploadVoucherSerializer
 
 class LNMCallbackUrlAPIView(CreateAPIView):
     queryset = LNMOnline.objects.all()
@@ -164,4 +169,66 @@ class NetPostAPIView(CreateAPIView):
         return HttpResponse(status=204)
         
         #{'form_values': ['100'], 'phone_number': ['0722888543']}
+
+class CustomLoginView(LoginView):
+    template_name = 'login.html'
+    fields = '__all__'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('voucher-upload')
+
+class VoucherAPIView(CreateAPIView):
+    
+
+    queryset = UploadVoucher.objects.all()
+    serializer_class = UploadVoucherSerializer
+    permission_classes = [AllowAny]
+
+    def get(self, request, format=None):
+        """
+        Return a list of all users.
+        """
+        return render(request,'voucher_upload.html')
+    def post(self, request, format=None):
         
+        from django.contrib import messages
+        csv_file = request.FILES['file']
+        locale1 =request.data["form_values1"]
+        span1 =request.data["form_values2"]
+
+        if not csv_file.name.endswith('.csv'):
+            messages.error(request, 'This is not a csv file')
+            return redirect("voucher-upload") 
+        
+        else:
+            messages.success(request, "Vouchers uploaded successfully")
+            data_set = csv_file.read().decode('UTF-8')
+            io_string = io.StringIO(data_set)
+            #next(io_string)
+            
+            data = {}
+            for column in csv.reader(io_string, delimiter=',', quotechar="|"):
+                key=column[1]
+                value= column[4]
+                data[key] = value
+            
+            from samples.voucher_upload import value_extract
+            value_extract(locale1,span1,data)
+            print(data)
+            return redirect("voucher-upload")
+        
+def delete_form(request):
+    from django.contrib import messages
+    if request.method == 'GET':
+         locale = request.GET.get('form_values3')
+         span = request.GET.get('form_values4')
+         
+         from samples.voucher_upload import voucher_delete
+         ret = voucher_delete(locale,span)
+         if ret == 1:
+             messages.success(request, "Deleted Voucher database successfully")
+         else:
+             messages.error(request, 'Failed to delete Voucher Database')
+
+    return redirect("voucher-upload")

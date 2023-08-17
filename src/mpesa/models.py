@@ -19,3 +19,6 @@ class netview(models.Model):
 
 class C2BPayments(models.Model):
     pass
+
+class UploadVoucher(models.Model):
+    pass

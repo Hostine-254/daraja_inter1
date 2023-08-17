@@ -1,0 +1,51 @@
+
+<style>
+.box{
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    position: relative;
+    width: 320px;
+    height: 56vh;
+    background-color: hsla(41, 95%, 85%, 0.702);
+    border-radius: 8px;
+}
+.sub_box{
+    display: flex;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 60px;
+}
+form input{
+    background-color: #088178;
+    border: #088178;
+    border-radius: 8px;
+    width: 164px;
+    height: 32px;
+}
+#butona{
+    background-color: #088178;
+    border: none;
+    border-radius: 8px;
+    width: 74px;
+    height: 32px; 
+}
+h1{
+    padding-top: 20px;
+    justify-content: center;
+    text-align: center;
+}
+</style>
+
+
+<div class="box">
+<h1>Login</h1>
+<div class="sub_box">
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Login" id="butona">
+</form>
+</div>
+</div>
