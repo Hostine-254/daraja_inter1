@@ -26,7 +26,7 @@ def mobitech(voucher_detail,ph_nmber='0722xxxxxx'):
           "response_type": "json",
           "sender_name": "23107",
           "service_id": 0,
-          "message": msg_to_send + ' \n \t\t\tNetView <Sample!, Cheap!, Reliable!'
+          "message": msg_to_send + ' \n \t\t\tNetView <Simple!, Cheap!, Reliable!'
         }
 
        headers = {
