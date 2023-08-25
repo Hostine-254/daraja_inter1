@@ -15,7 +15,8 @@ def mobitech(voucher_detail,ph_nmber):
               msg_to_send =voucher_detail[1]
        if voucher_detail[1] == 1:
               send_number =ph_nmber
-              msg_to_send = 'Voucher password: %s' % (voucher_detail[0])
+              voucher_msg = str(voucher_detail[0])
+              msg_to_send = 'Voucher password: %s' % (voucher_msg)
        else:
               pass
 
