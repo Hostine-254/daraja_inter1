@@ -45,11 +45,11 @@ def voucher_logic(db):
     count = len(db.keys())
     if bool(db) and count >= 3:
       voucher = db.popitem()
-      login =voucher[0]
+      #login =voucher[0]
       password = voucher[1]
 
-      print('login: %s password: %s' % (login,password))
-      return (login,password)
+      print('password: %s' % (password))
+      return (password)
     else:
       return 0
     
