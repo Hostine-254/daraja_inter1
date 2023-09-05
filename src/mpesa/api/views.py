@@ -145,9 +145,9 @@ class NetPostAPIView(CreateAPIView):
     
     payee_locale = ''
     
-    @staticmethod
-    def payee_locale_method():
-        return payee_locale
+    #@staticmethod
+    #def payee_locale_method():
+    #    return payee_locale
 
     def create(self, request,):
         from django.http import HttpResponse
