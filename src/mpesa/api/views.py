@@ -84,7 +84,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         voucher_detail = get_Voucher(amount)
         mobitech(voucher_detail,phone_number)
         
-
+        payee_locale = NetPostAPIView.payee_locale_method
         print("This is the payee location accessecd from this function ",payee_locale)
 
 
@@ -145,9 +145,9 @@ class NetPostAPIView(CreateAPIView):
     
     payee_locale = ''
     
-    #@staticmethod
-    #def payee_locale_method():
-    #    return payee_locale
+    @staticmethod
+    def payee_locale_method():
+        return payee_locale
 
     def create(self, request,):
         from django.http import HttpResponse
