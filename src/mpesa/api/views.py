@@ -80,11 +80,13 @@ class LNMCallbackUrlAPIView(CreateAPIView):
 
         from samples.mob_message import mobitech
         from samples.voucher_retrival import get_Voucher
-
-        voucher_detail = get_Voucher(amount)
-        mobitech(voucher_detail,phone_number)
         
         payee_locale = NetPostAPIView.payee_locale_method()
+
+        voucher_detail = get_Voucher(amount,payee_locale)
+        mobitech(voucher_detail,phone_number)
+        
+        
         print("This is the payee location accessecd from this function ",payee_locale)
 
 
