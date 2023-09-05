@@ -11,6 +11,8 @@ from rest_framework.response import Response
 from mpesa.models import LNMOnline,netview,C2BPayments,UploadVoucher
 from mpesa.api.serializers import LNMOnlineSerializer,NetPostSerializer,C2BPaymentSerializer,UploadVoucherSerializer
 
+payee_locale = ""
+
 class LNMCallbackUrlAPIView(CreateAPIView):
     queryset = LNMOnline.objects.all()
     serializer_class = LNMOnlineSerializer
@@ -80,7 +82,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         from samples.mob_message import mobitech
         from samples.voucher_retrival import get_Voucher
 
-        voucher_detail = get_Voucher(amount)
+        voucher_detail = get_Voucher(amount,payee_locale)
         mobitech(voucher_detail,phone_number)
 
 
@@ -158,7 +160,6 @@ class NetPostAPIView(CreateAPIView):
         payee_number = payee_number.lstrip('0')
         payee_number_converted = '254' + payee_number
 
-        print("This is the converted number: ",payee_number_converted)
         print("This is the payee amount converted:",type(payee_amount_converted))
         print("This is the payee number converted",type(payee_number_converted))
         

@@ -3,9 +3,9 @@ import shelve
 
 
   
-def get_Voucher(amount):
+def get_Voucher(amount,locale):
     voucher_available = 1
-    if amount == 2:
+    if amount == 2 and locale == "Thika":
         with shelve.open('dbms/db_Th_Day') as db:
            #db.update(data)
            msg = "Shs 20 Vouchers are almost depleted"
@@ -17,7 +17,7 @@ def get_Voucher(amount):
               #print("Shs 20 Vouchers are almost depleted")
            else:
               return (ret,voucher_available)
-    elif amount == 100:
+    elif amount == 100 and locale == "Thika":
         with shelve.open('dbms/db_Th_Week') as db:
            #db.update(data)
            msg = "Shs 100 Vouchers are almost depleted"
@@ -27,7 +27,7 @@ def get_Voucher(amount):
                #print("Shs 100 Vouchers are almost depleted")
            else:
               return (ret,voucher_available)
-    elif amount ==320:
+    elif amount ==320 and locale == "Thika":
         with shelve.open('dbms/db_Th_Month') as db:
            #db.update(data)
            msg = "Shs 320 Vouchers are almost depleted"
