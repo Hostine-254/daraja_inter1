@@ -146,12 +146,14 @@ class NetPostAPIView(CreateAPIView):
 
         payee_amount = request.data["form_values"]
         payee_number = request.data["phone_number"]
+        payee_locale = request.data["locale"]
         print(type(payee_amount))
         print(type(payee_number))
         payee_amount_converted = int(payee_amount)
         print(type(payee_amount_converted))
         print('This is the requested payee amount: ',payee_amount)
         print("This is the requested payee number: ",payee_number)
+        print("This is the requested payee location: ",payee_locale)
 
         payee_number = payee_number.lstrip('0')
         payee_number_converted = '254' + payee_number
