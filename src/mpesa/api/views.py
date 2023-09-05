@@ -11,7 +11,7 @@ from rest_framework.response import Response
 from mpesa.models import LNMOnline,netview,C2BPayments,UploadVoucher
 from mpesa.api.serializers import LNMOnlineSerializer,NetPostSerializer,C2BPaymentSerializer,UploadVoucherSerializer
 
-payee_no_locale = "no_place"
+payee_locale = ""
 
 class LNMCallbackUrlAPIView(CreateAPIView):
     queryset = LNMOnline.objects.all()
@@ -85,6 +85,8 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         voucher_detail = get_Voucher(amount)
         mobitech(voucher_detail,phone_number)
 
+        print("This is the payee location accessecd from this function ",payee_locale)
+
 
         from mpesa.models import LNMOnline
 
@@ -143,6 +145,8 @@ class NetPostAPIView(CreateAPIView):
 
     def create(self, request,):
         from django.http import HttpResponse
+ 
+        global payee_locale
 
         print(request.data, "this is the net-request.data")
 
@@ -162,7 +166,6 @@ class NetPostAPIView(CreateAPIView):
 
         print("This is the payee amount converted:",type(payee_amount_converted))
         print("This is the payee number converted",type(payee_number_converted))
-        print("This is the payee_no_local",payee_no_locale)
         
         from samples.payments import lipa_na_mpesa
 
