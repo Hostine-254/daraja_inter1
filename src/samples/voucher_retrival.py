@@ -8,7 +8,7 @@ def get_Voucher(amount,locale):
     if amount == 2 and locale=="Thika":
         with shelve.open('dbms/db_Th_Day') as db:
            #db.update(data)
-           msg = "Shs 20 Vouchers are almost depleted"
+           msg = "Shs 20 Vouchers are almost depleted REF: Thika"
            ret = voucher_logic(db)
            
            #print(dict(db))
@@ -20,7 +20,7 @@ def get_Voucher(amount,locale):
     elif amount == 100 and locale=="Thika":
         with shelve.open('dbms/db_Th_Week') as db:
            #db.update(data)
-           msg = "Shs 100 Vouchers are almost depleted"
+           msg = "Shs 100 Vouchers are almost depleted REF: Thika"
            ret = voucher_logic(db)
            if ret == 0:
               return (ret,msg)
@@ -30,7 +30,7 @@ def get_Voucher(amount,locale):
     elif amount ==320 and locale=="Thika":
         with shelve.open('dbms/db_Th_Month') as db:
            #db.update(data)
-           msg = "Shs 320 Vouchers are almost depleted"
+           msg = "Shs 320 Vouchers are almost depleted REF: Thika"
            ret = voucher_logic(db)
            if ret == 0:
                return (ret,msg)
@@ -43,7 +43,7 @@ def get_Voucher(amount,locale):
     if amount == 2 and locale=="Nairobi":
         with shelve.open('dbms/db_Nb_Day') as db:
            #db.update(data)
-           msg = "Shs 20 Vouchers are almost depleted"
+           msg = "Shs 20 Vouchers are almost depleted REF: Nai"
            ret = voucher_logic(db)
            
            #print(dict(db))
@@ -55,7 +55,7 @@ def get_Voucher(amount,locale):
     elif amount == 100 and locale=="Nairobi":
         with shelve.open('dbms/db_Nb_Week') as db:
            #db.update(data)
-           msg = "Shs 100 Vouchers are almost depleted"
+           msg = "Shs 100 Vouchers are almost depleted REF: Nai"
            ret = voucher_logic(db)
            if ret == 0:
               return (ret,msg)
@@ -65,7 +65,7 @@ def get_Voucher(amount,locale):
     elif amount ==320 and locale=="Nairobi":
         with shelve.open('dbms/db_Nb_Month') as db:
            #db.update(data)
-           msg = "Shs 320 Vouchers are almost depleted"
+           msg = "Shs 320 Vouchers are almost depleted REF: Nai"
            ret = voucher_logic(db)
            if ret == 0:
                return (ret,msg)
