@@ -1,0 +1,66 @@
+
+<style>
+.box{
+    background-color: hsla(41, 95%, 85%, 0.702);
+    height: auto;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    border-radius: 8px;
+}
+.box h2{
+    text-align: center;
+    padding-top: 20px;
+}
+.box table{
+    margin: 10px auto;
+    font-size: 1.1rem;
+    min-width: auto;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+.box table thead th{
+    background-color: #088178;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box table th{
+    padding: 10.5px 100px;
+    border-bottom: 1px solid #dddddd;
+}
+.box table tbody th{
+    font-weight: 200;
+}
+@media screen and (max-width: 900px){
+.box{
+    width: 100%;
+}
+.box table th{
+    padding: 10.5px 55px;
+}
+}
+</style>
+
+
+<div class="box">
+<h2>View Voucher Logs</h2>
+
+<table>
+    <thead>
+<th class="column0">phone number</th>
+<th class="column3">voucher code</th>
+    </thead>
+    <tbody>
+    {% for key,value in data.items %}
+        <tr>
+        <th class="column1">{{value}}</th>
+        <th class="column2">{{key}}</th>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</div>

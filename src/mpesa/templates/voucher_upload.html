@@ -26,7 +26,7 @@ a{
     margin-right: auto;
     margin-bottom: 40px;
     position: relative;
-    width: 380px;
+    width: 50%;
     height: auto;
     background-color: hsla(41, 95%, 85%, 0.702);
     border-radius: 8px;
@@ -48,16 +48,29 @@ form p{
     background-color: #088178;
     border: none;
     border-radius: 8px;
-    width: 74px;
+    width: 78px;
     height: 32px;
 }
 #in_box{
-    width: 120px;
+    width: 150px;
     height: 32px;
     border: none;
     border-radius: 4px;
 
 }
+#phone{
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    height: 26px;
+}
+
+@media screen and (max-width: 800px){
+.box{
+    width: 100%;
+}
+}
+
 </style>
 
 {% if request.user.is_authenticated %}
@@ -105,15 +118,14 @@ form p{
         
     </form>
      <hr>
-     <hr>
     <form action="{% url 'vouchers-delete' %}" enctype="multipart/form-data" method="DELETE" id="form2">
         <h3>Destroy a voucher Database</h3>
         {% csrf_token %}
         <div class="first_box">
             <p>Select Region</p>
             <select name="form_values3" id="in_box">
-                <option value="nairobi">Nairobi</option>
-                <option value="thika" >Thika</option>
+                <option value="Nairobi">Nairobi</option>
+                <option value="Thika" >Thika</option>
             </select>
         </div>
 
@@ -129,6 +141,56 @@ form p{
 
         <div class="third_box">
             <button type="submit">Destroy</button>
+        </div>
+        
+    </form>
+
+    <hr>
+
+    <form action="{% url 'voucher-pop' %}" enctype="multipart/form-data" method="post" id="form2">
+        <h3>Send a Voucher Manually</h3>
+        {% csrf_token %}
+        <div class="first_box">
+            <p>Select Region</p>
+            <select name="form_values3" id="in_box">
+                <option value="nairobi">Nairobi</option>
+                <option value="thika" >Thika</option>
+            </select>
+        </div>
+
+        <div class="second_box">
+            <p>Select Amount</p>
+            <select name="form_values4" id="in_box">
+                <option value="2">Shs 2</option>
+                <option value="20" >Shs 20</option>
+                <option value="100" >Shs 100</option>
+                <option value="320" >Shs 300</option>
+            </select>
+        </div>
+        <p class="p1">Enter Phone No. To Receive Voucher</p>
+        <input type="text" required="required" placeholder="072XX88XX3" name="phone_number" id="phone">
+
+        <div class="third_box">
+            <button type="submit">Send 'n' Pop</button>
+        </div>
+        
+    </form>
+
+    <hr>
+
+    <form action="{% url 'view-logs' %}" enctype="multipart/form-data" method="POST" id="form2">
+        <h3>View Logs</h3>
+        {% csrf_token %}
+        <div class="first_box">
+            <p>Select Region</p>
+            <select name="form_values3" id="in_box">
+                <option value="nairobi">Nairobi</option>
+                <option value="thika" >Thika</option>
+            </select>
+        </div>
+
+        <div class="third_box">
+            <button type="submit">View</button>
         </div>
         
     </form>

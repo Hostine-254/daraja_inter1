@@ -1,11 +1,11 @@
 
 
-def mobitech(voucher_detail,ph_nmber):
+def mobitech(voucher_detail,ph_nmber,locale="nil"):
        
        import requests
 
        import simplejson as json
-        
+       loc = locale.title()
        send_number = ''
 
        msg_to_send = ''
@@ -37,6 +37,27 @@ def mobitech(voucher_detail,ph_nmber):
 
        response = requests.request("POST", url, headers=headers, data = json.dumps(payload))
 
+       save_logs(voucher_detail,ph_nmber,loc)
+
        print(response.text.encode('utf8'))
 
 #mobitech(['1234',1],'254722888543')
+def save_logs(voucher_det,ph_no,locale):
+       import shelve
+       try:
+              if voucher_det[1] == 1:
+                     password = str(voucher_det[0])
+                     data = {password:ph_no}
+                     if locale == "Thika" :
+                            with shelve.open('dbms/db_Th_Logs') as db:
+                                   db.update(data)
+                     elif locale == "Nairobi" :
+                            with shelve.open('dbms/db_Nb_Logs') as db:
+                                   db.update(data)
+                     else:
+                            pass
+                     print("Called this function")
+              else:
+                     pass
+       except:
+              pass

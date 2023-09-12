@@ -84,7 +84,7 @@ class LNMCallbackUrlAPIView(CreateAPIView):
         payee_locale = NetPostAPIView.payee_locale_method()
 
         voucher_detail = get_Voucher(amount,payee_locale)
-        mobitech(voucher_detail,phone_number)
+        mobitech(voucher_detail,phone_number,payee_locale)
         
         
         print("This is the payee location accessecd from this function ",payee_locale)
@@ -247,3 +247,42 @@ def delete_form(request):
              messages.error(request, 'Failed to delete Voucher Database')
 
     return redirect("voucher-upload")
+
+def pop_voucher(request):
+    from django.contrib import messages
+    if request.method == 'POST':
+         locale = (request.POST['form_values3']).title()
+         amnt = int(request.POST['form_values4'])
+         phone_no = request.POST['phone_number']
+
+         send_no = phone_no.lstrip('0')
+         send_no = '254' + send_no
+
+         print(type(send_no))
+
+         print("This are the values returned: %s,%d,%s" %(locale,amnt,send_no))
+         
+         from samples.mob_message import mobitech
+         from samples.voucher_retrival import get_Voucher
+    
+         ret = get_Voucher(amnt,locale)
+         mobitech(ret,send_no,locale)
+         if ret[1] == 1:
+             messages.success(request, "Login Credential: %s" % ret[0])
+         elif ret[0] == 0:
+             messages.error(request, 'Database is almost EmptY   PLEASE RELOAD!!')
+         print("Returned value: ",ret)
+
+    return redirect("voucher-upload")
+
+def view_logs(request):
+    if request.method == 'POST':
+         locale = (request.POST['form_values3']).title()
+
+         from samples.voucher_retrival import view_logs_voucher
+         data = view_logs_voucher(locale)
+         print(type(locale))
+         print(data)
+         print("This is the locale: ",locale)
+
+    return render(request,"view_logs.html",{'data':data})

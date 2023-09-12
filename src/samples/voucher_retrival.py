@@ -89,3 +89,17 @@ def voucher_logic(db):
     else:
       return 0
     
+
+def view_logs_voucher(locale):
+    data = {}
+    if locale == "Thika":
+       with shelve.open('dbms/db_Th_Logs') as db:
+          data = dict(db)
+       return data
+    elif locale == "Nairobi":
+       with shelve.open('dbms/db_Nb_Logs') as db:
+          data = dict(db)
+       return data
+    else:
+       pass
+          
